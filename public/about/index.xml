@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Awesome Hugo blog</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in Abouts on Awesome Hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 30 Jun 2024 12:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/about/</link>
+      <pubDate>Sun, 30 Jun 2024 12:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/about/about/</guid>
+      
+      <description>About Me Hi, I&amp;rsquo;m Hubert Olejnik, a passionate graphics programmer and game developer. Welcome to my blog where I document my journey through the fascinating world of graphics programming and game development.
+My Background I have been involved in the tech industry for over a decade, with a deep focus on computer graphics, real-time rendering, and game development. My experience spans various programming languages, game engines, and graphics APIs.
+What You&amp;rsquo;ll Find Here This blog is my space to share knowledge, insights, and tutorials on a range of topics including:</description>
+      
+    </item>
+    
+  </channel>
+</rss>
