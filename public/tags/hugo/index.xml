@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Awesome Hugo blog</title>
+    <link>http://localhost:1313/tags/hugo/</link>
+    <description>Recent content in Hugo on Awesome Hugo blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Jun 2024 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Blog Post</title>
+      <link>http://localhost:1313/test/</link>
+      <pubDate>Sun, 30 Jun 2024 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/test/</guid>
+      <description>Welcome to My Blog! This is my first blog post using Hugo, a fast and flexible static site generator written in Go. Here, I&amp;rsquo;ll share my thoughts on various topics, starting with how awesome Hugo is for creating static websites.&#xA;Why Hugo? Speed: Hugo is incredibly fast, making site generation a breeze. Simplicity: Writing content in Markdown is straightforward and easy. Flexibility: Hugo supports a wide range of use cases with its powerful templating system.</description>
+    </item>
+  </channel>
+</rss>
