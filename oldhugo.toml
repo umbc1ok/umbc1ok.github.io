@@ -1,0 +1,6 @@
+title = "Awesome Hugo blog"
+baseURL = 'https://hba.sid.one/'
+
+[module]
+  [[module.imports]]
+    path = "github.com/hugo-sid/hugo-blog-awesome"
