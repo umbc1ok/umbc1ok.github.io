@@ -1,5 +1,5 @@
-title = "Awesome Hugo blog"
-baseURL = 'https://hba.sid.one/'
+title = "Graphics programming blog"
+baseURL = 'https://umbc1ok.github.io/'
 
 # This is what goes in <html lang="">
 languageCode = 'en-us'

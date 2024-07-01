@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Directx11 on Awesome Hugo blog</title>
+    <title>Directx11 on Graphics programming blog</title>
     <link>http://localhost:1313/tags/directx11/</link>
-    <description>Recent content in Directx11 on Awesome Hugo blog</description>
+    <description>Recent content in Directx11 on Graphics programming blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Sun, 30 Jun 2024 12:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/directx11/index.xml" rel="self" type="application/rss+xml" />
