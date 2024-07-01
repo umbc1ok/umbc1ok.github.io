@@ -162,7 +162,7 @@
     <li><a href="#scattering-equation">Scattering equation</a></li>
     <li><a href="#spotlight-cone">Spotlight cone</a></li>
     <li><a href="#what-about-the-shadows">What about the shadows?</a></li>
-    <li><a href="#is-there-any-way-to-improve-it">Is there any way to improve it?</a></li>
+    <li><a href="#is-there-any-way-to-fix-it">Is there any way to fix it?</a></li>
     <li><a href="#ending-notes">Ending notes</a></li>
   </ul>
 </nav>
@@ -330,24 +330,16 @@ is yellowish/redish during sunset, but these coefficients will work for our case
 <p>Last step is adding the scatter to already calculated pixel color (scattering here is a postprocess).</p>
 <h2 id="what-about-the-shadows">What about the shadows?</h2>
 <p>If you have implemented everything correctly, the result should look like that:</p>
-<div style="text-align: center;">
-    <img src="/blog1/no_shadow_scattering.png" alt="xd" />
-</div>
-<p>Notice anything wrong? Yes, the cone is going through the snowman! We need to introduce some shadows.</p>
+<p><img alt="Scattering example" src="/blog1/no_shadow_scattering.png">
+Notice anything wrong? Yes, the cone is going through the snowman! We need to introduce some shadows.</p>
 <p>We have the intersection points with the cone, why not calculate if this point is in the shadow?</p>
-<div style="text-align: center;">
-    <img src="/blog1/scattering_fake_angle.png" alt="xd" />
-</div>
-Looks plausible doesn't it? Let's try and test it further.
-<div style="text-align: center;">
-    <img src="/blog1/scattering_true_angle.png" alt="xd" />
-</div>
-Now we see that this is flawed. Cone makes the impression of being empty.
-<p>I am ashamed to admit I chose to use this solution, the game was dynamic enough and camera angle was minimizing the artifacts (empty cone).</p>
-<div style="text-align: center;">
-    <img src="/blog1/balwan2.png" alt="xd" />
-</div>
-<h2 id="is-there-any-way-to-improve-it">Is there any way to improve it?</h2>
+<p><img alt="Scattering example" src="/blog1/scattering_fake_angle.png">
+Looks plausible doesn&rsquo;t it? Let&rsquo;s try and test it further.</p>
+<p><img alt="Scattering example" src="/blog1/scattering_true_angle.png">
+Now we see that this is flawed. Cone makes the impression of being empty.</p>
+<p>I am ashamed to admit I chose to use this solution, the game was dynamic enough and camera angle was minimizing the artifacts (empty cone).
+<img alt="Scattering example" src="/blog1/balwan2.png"></p>
+<h2 id="is-there-any-way-to-fix-it">Is there any way to fix it?</h2>
 <p>I think there is. You could, in such situations, ray-march between the intersection points and calculate the shadow (could be a bit costly) and later
 average it. If you implement it, lemme know on Twitter <a href="https://x.com/umbc1ok">@umbc1ok</a>.</p>
 <h2 id="ending-notes">Ending notes</h2>

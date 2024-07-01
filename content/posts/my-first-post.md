@@ -181,28 +181,22 @@ Last step is adding the scatter to already calculated pixel color (scattering he
 ## What about the shadows?
 If you have implemented everything correctly, the result should look like that:
 
-<div style="text-align: center;">
-    <img src="/blog1/no_shadow_scattering.png" alt="xd" />
-</div>
 
+![Scattering example](/blog1/no_shadow_scattering.png)
 Notice anything wrong? Yes, the cone is going through the snowman! We need to introduce some shadows.
 
 We have the intersection points with the cone, why not calculate if this point is in the shadow?
-<div style="text-align: center;">
-    <img src="/blog1/scattering_fake_angle.png" alt="xd" />
-</div>
+
+![Scattering example](/blog1/scattering_fake_angle.png)
 Looks plausible doesn't it? Let's try and test it further.
-<div style="text-align: center;">
-    <img src="/blog1/scattering_true_angle.png" alt="xd" />
-</div>
+
+![Scattering example](/blog1/scattering_true_angle.png)
 Now we see that this is flawed. Cone makes the impression of being empty.
 
 I am ashamed to admit I chose to use this solution, the game was dynamic enough and camera angle was minimizing the artifacts (empty cone).
-<div style="text-align: center;">
-    <img src="/blog1/balwan2.png" alt="xd" />
-</div>
+![Scattering example](/blog1/balwan2.png)
 
-## Is there any way to improve it?
+## Is there any way to fix it?
 I think there is. You could, in such situations, ray-march between the intersection points and calculate the shadow (could be a bit costly) and later
 average it. If you implement it, lemme know on Twitter [@umbc1ok](https://x.com/umbc1ok).
 
