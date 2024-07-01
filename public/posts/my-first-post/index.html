@@ -5,11 +5,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">My First Post | Awesome Hugo blog</title>
-<meta property="og:title" content="My First Post | Awesome Hugo blog" />
-<meta name="twitter:title" content="My First Post | Awesome Hugo blog" />
-<meta itemprop="name" content="My First Post | Awesome Hugo blog" />
-<meta name="application-name" content="My First Post | Awesome Hugo blog" />
+<title itemprop="name">In-scattering for spot lights | Awesome Hugo blog</title>
+<meta property="og:title" content="In-scattering for spot lights | Awesome Hugo blog" />
+<meta name="twitter:title" content="In-scattering for spot lights | Awesome Hugo blog" />
+<meta itemprop="name" content="In-scattering for spot lights | Awesome Hugo blog" />
+<meta name="application-name" content="In-scattering for spot lights | Awesome Hugo blog" />
 <meta property="og:site_name" content="XD" />
 
 <meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
@@ -48,14 +48,14 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "My First Post",
+        "headline": "In-scattering for spot lights",
         "author": {
         "@type": "Person",
         "name": ""
         },
         "datePublished": "2024-06-30",
         "description": "",
-        "wordCount":  12 ,
+        "wordCount":  1204 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-06-30",
         "image": {
@@ -97,7 +97,23 @@
     
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9X43TDZW4B"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" crossorigin="anonymous" />
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA=="
+    crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9X43TDZW4B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -108,6 +124,17 @@
   
 </head>
 
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']]                  
+    }
+  };
+</script>
+  
 </head>
 <body>
   
@@ -115,7 +142,7 @@
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">My First Post</h1>
+                <h1 class="header-title">In-scattering for spot lights</h1>
                 
                 
                 <div class="post-meta">
@@ -127,10 +154,205 @@
     
     <details class="toc" ZgotmplZ>
         <summary><b>Table of Contents</b></summary>
-        <nav id="TableOfContents"></nav>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#in-short">In short</a></li>
+    <li><a href="#chosen-method">Chosen method</a></li>
+    <li><a href="#what-did-i-do-and-how">What did I do and how?</a></li>
+    <li><a href="#scattering-equation">Scattering equation</a></li>
+    <li><a href="#spotlight-cone">Spotlight cone</a></li>
+    <li><a href="#what-about-the-shadows">What about the shadows?</a></li>
+    <li><a href="#is-there-any-way-to-improve-it">Is there any way to improve it?</a></li>
+    <li><a href="#ending-notes">Ending notes</a></li>
+  </ul>
+</nav>
     </details>
             <div class="page-content">
-                <p>Welcome to my first post! This is an introduction to my blog.</p>
+                <h2 id="in-short">In short</h2>
+<p>This post will cover my work on light scattering in game <strong>Guiding Light</strong> developed using DirectX 11 for ZTGK 2024 competition. Our work was awarded the main
+prize in the <strong>Game Development</strong> category and received a special award from <strong>Activision</strong>.</p>
+<p><img alt="Scattering example" src="/blog1/main_example.png">
+<em>Picture showing the results of my work.</em></p>
+<h2 id="chosen-method">Chosen method</h2>
+<p>I needed to find a method that wouldn&rsquo;t take me much time to implement. We were tasked with making a game in parallel
+with it&rsquo;s own game engine in 3 months, there wasn&rsquo;t much time for sophisticated methods, nor was it necessary given the overall theme of our game.</p>
+<p>After some extensive research I stumbled upon a blog post made by Miles Macklin called <a href="https://blog.mmacklin.com/2010/05/29/in-scattering-demo/">In-scattering demo</a> which suited
+my needs perfectly.</p>
+<h2 id="what-did-i-do-and-how">What did I do and how?</h2>
+<p>Macklin&rsquo;s solution covered most of my needs, with one exception. Light scattering didn&rsquo;t take into account occluders, which was very crucial to me, lighthouse&rsquo;s light was
+the center-point of entire gameplay, a light that goes through occluders would be unacceptable. I will explain my solution in a later section. First, I want to shine some light on what Macklin did, but did not explain in his blog. Next few sections will explain step-by-step how to achieve the scattering for both point and spot lights.</p>
+<h2 id="scattering-equation">Scattering equation</h2>
+<p>Macklin explains the theory behind it quite well, moreover he provides a GLSL snippet for the code. I made one change to it (other than rewriting in HLSL):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">in_scatter</span><span class="p">(</span><span class="n">float3</span> <span class="n">start</span><span class="p">,</span> <span class="n">float3</span> <span class="n">dir</span><span class="p">,</span> <span class="n">float3</span> <span class="n">lightPos</span><span class="p">,</span> <span class="kt">float</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Calculate quadratic coefficients a, b, c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">float3</span> <span class="n">q</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="n">lightPos</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">denominator</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Avoid division by zero or very small values
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">denominator</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mf">100000.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Evaluate integral
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">s</span> <span class="o">=</span> <span class="mf">1.0f</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">denominator</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">l</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">atan</span><span class="p">((</span><span class="n">d</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">atan</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">s</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>I added a check if the value of the denominator is a zero, the absence of this check produced some nasty artifacts.</p>
+<div style="text-align: center;">
+    <img src="/blog1/denominator_zero_comparison.png" alt="Your image description" />
+</div>
+<p><em>On the left you can see the corrected version, on the right the one with artifacts.</em></p>
+<h2 id="spotlight-cone">Spotlight cone</h2>
+<p>How do we check if a point is inside the cone of the light? Maths!
+We need a cone equation which is:
+</p>
+\[
+x^2 + z^2 = y^2 \cdot tan^2(θ)
+\]
+<p>
+or as a quadratic equation:
+</p>
+\[
+x^2 + z^2 - y^2 \cdot tan^2(θ) = 0
+\]
+<p>
+Theta (θ) is the cut-off angle of the cone.</p>
+<p>For every pixel we will be casting a ray from the camera towards it. Later we will determine if the ray intersects with the cone.
+Given an origin point <em>O</em> and direction <em>D</em>, a point along the ray can be represented by:
+</p>
+\[
+P(t) = O + t \cdot D
+\]
+<p>So let&rsquo;s substitute the point along the ray into our equation:
+</p>
+\[
+(O_x + t \cdot D_x)^2 + (O_z + t \cdot D_z)^2 - (O_y + t \cdot D_y)^2 \cdot tan^2(\theta) = 0
+\]
+<p>After you raise everything to the power of 2 and group all terms by powers of <em>t</em> you will get a quadratic equation of:
+</p>
+\[
+a = D^2_x + D^2_z - D^2_y \cdot tan^2(\theta)
+\]
+\[
+b = 2 \cdot (O_x \cdot D_x + O_z \cdot D_z - O_y \cdot D_y \cdot tan^2(\theta))
+\]
+\[
+c = O^2_x + O^2_z - O^2_y \cdot tan^2(\theta)
+\]
+<p>Solving it will give you the ray&rsquo;s intersection points with the cone.
+We will later use distance between those two points to determine the scattering strength.
+Here&rsquo;s how the function looks like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hlsl" data-lang="hlsl"><span class="line"><span class="cl"><span class="c1">// This is mostly Macklin&#39;s code</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float2</span> <span class="n">intersect_cone</span><span class="p">(</span><span class="n">SpotLight</span> <span class="n">light</span><span class="p">,</span> <span class="kt">float3</span> <span class="n">origin</span><span class="p">,</span> <span class="kt">float3</span> <span class="n">direction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float4</span> <span class="n">local_origin</span> <span class="o">=</span> <span class="nb">mul</span><span class="p">(</span><span class="n">light</span><span class="p">.</span><span class="n">inv_model</span><span class="p">,</span> <span class="kt">float4</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float4</span> <span class="n">local_direction</span> <span class="o">=</span> <span class="nb">mul</span><span class="p">(</span><span class="n">light</span><span class="p">.</span><span class="n">inv_model</span><span class="p">,</span> <span class="kt">float4</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// calculate the a, b and c with the provided formula here:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">min_t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">max_t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">solve_quadratic</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">local_origin</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">local_direction</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">min_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">local_origin</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">local_direction</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">max_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">y1</span> <span class="o">&gt;</span> <span class="mf">0.0f</span> <span class="o">&amp;&amp;</span> <span class="n">y2</span> <span class="o">&gt;</span> <span class="mf">0.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Both intersections are in the reflected cone </span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// so return degenerate value</span>
+</span></span><span class="line"><span class="cl">        <span class="n">min_t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_t</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y1</span> <span class="o">&gt;</span> <span class="mf">0.0f</span> <span class="o">&amp;&amp;</span> <span class="n">y2</span> <span class="o">&lt;</span> <span class="mf">0.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Closest t on the wrong side, </span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// furthest on the right side</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// =&gt; ray enters volume but doesn&#39;t leave it </span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// (so set max_t arbitrarily large)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">min_t</span> <span class="o">=</span> <span class="n">max_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_t</span> <span class="o">=</span> <span class="mf">10000.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y1</span> <span class="o">&lt;</span> <span class="mf">0.0f</span> <span class="o">&amp;&amp;</span> <span class="n">y2</span> <span class="o">&gt;</span> <span class="mf">0.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// closest t on the right side, </span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//largest on the wrong side</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// =&gt; ray starts in volume and exits once</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_t</span> <span class="o">=</span> <span class="n">min_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">min_t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kt">float2</span><span class="p">(</span><span class="n">min_t</span><span class="p">,</span> <span class="n">max_t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>As you probably noticed, we need to handle some edge cases, but I think the code is pretty self-explanatory.</p>
+<p>Finally, having done all this we can calculate how much light is scattered between the pixel and camera.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hlsl" data-lang="hlsl"><span class="line"><span class="cl"><span class="kt">float3</span> <span class="n">calculate_scatter</span><span class="p">(</span><span class="n">SpotLight</span> <span class="n">light</span><span class="p">,</span> <span class="kt">float4</span> <span class="n">world_position</span><span class="p">,</span> <span class="kt">int</span> <span class="n">light_index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float3</span> <span class="n">surface_to_camera_direction</span> <span class="o">=</span> <span class="n">world_position</span><span class="p">.</span><span class="n">xyz</span> <span class="o">-</span> <span class="n">camera_pos</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">ray_length</span> <span class="o">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">surface_to_camera_direction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">surface_to_camera_direction</span> <span class="o">/=</span> <span class="n">ray_length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">min_t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">max_t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float2</span> <span class="n">res</span> <span class="o">=</span> <span class="n">intersect_light_cone</span><span class="p">(</span><span class="n">light</span><span class="p">,</span> <span class="n">camera_pos</span><span class="p">,</span> <span class="n">surface_to_camera_direction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">min_t</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_t</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">max_t</span> <span class="o">=</span> <span class="nb">clamp</span><span class="p">(</span><span class="n">max_t</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="n">ray_length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">min_t</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">min_t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">max_t</span> <span class="o">-</span> <span class="n">min_t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// This is arbitrary. I needed a very strong scattering efect, hence the multiplication</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">scattering_coefficient</span> <span class="o">=</span> <span class="mf">100.0f</span> <span class="o">*</span> <span class="n">light</span><span class="p">.</span><span class="n">scattering_factor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float3</span> <span class="n">scattering_constants</span> <span class="o">=</span> <span class="kt">float3</span><span class="p">(</span><span class="mf">0.2f</span><span class="p">,</span> <span class="mf">0.4f</span><span class="p">,</span> <span class="mf">0.8f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float3</span> <span class="n">scatter</span> <span class="o">=</span> <span class="n">light</span><span class="p">.</span><span class="n">diffuse</span> <span class="o">*</span> <span class="n">scattering_constants</span> 
+</span></span><span class="line"><span class="cl">                            <span class="o">*</span> <span class="n">in_scatter</span><span class="p">(</span><span class="n">camera_pos</span> <span class="o">+</span> <span class="n">surface_to_camera_direction</span> <span class="o">*</span> <span class="n">min_t</span><span class="p">,</span> <span class="n">surface_to_camera_direction</span><span class="p">,</span> <span class="n">light</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                             <span class="o">*</span> <span class="n">scattering_coefficient</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">scatter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>You probably noticed the <em>scattering_constants</em> variable. What does it do? Why it&rsquo;s blue component is the highest?
+It&rsquo;s because we want to simulate Rayleigh scattering, which causes the sky to be blue (this is a major simplification, the sky
+is yellowish/redish during sunset, but these coefficients will work for our case).</p>
+<p>Last step is adding the scatter to already calculated pixel color (scattering here is a postprocess).</p>
+<h2 id="what-about-the-shadows">What about the shadows?</h2>
+<p>If you have implemented everything correctly, the result should look like that:</p>
+<div style="text-align: center;">
+    <img src="/blog1/no_shadow_scattering.png" alt="xd" />
+</div>
+<p>Notice anything wrong? Yes, the cone is going through the snowman! We need to introduce some shadows.</p>
+<p>We have the intersection points with the cone, why not calculate if this point is in the shadow?</p>
+<div style="text-align: center;">
+    <img src="/blog1/scattering_fake_angle.png" alt="xd" />
+</div>
+Looks plausible doesn't it? Let's try and test it further.
+<div style="text-align: center;">
+    <img src="/blog1/scattering_true_angle.png" alt="xd" />
+</div>
+Now we see that this is flawed. Cone makes the impression of being empty.
+<p>I am ashamed to admit I chose to use this solution, the game was dynamic enough and camera angle was minimizing the artifacts (empty cone).</p>
+<div style="text-align: center;">
+    <img src="/blog1/balwan2.png" alt="xd" />
+</div>
+<h2 id="is-there-any-way-to-improve-it">Is there any way to improve it?</h2>
+<p>I think there is. You could, in such situations, ray-march between the intersection points and calculate the shadow (could be a bit costly) and later
+average it. If you implement it, lemme know on Twitter <a href="https://x.com/umbc1ok">@umbc1ok</a>.</p>
+<h2 id="ending-notes">Ending notes</h2>
+<p>I would like to especially thank Miles Macklin for his blog on this subject. When developing the game I was running out of ideas how to implement the spot light scattering.
+Remember that most of the code and ideas is Miles&rsquo;, I just wanted to explain it a little bit more and dig it out of the abyss (the blog is from 2012!).</p>
 
             </div>
         </article></main>

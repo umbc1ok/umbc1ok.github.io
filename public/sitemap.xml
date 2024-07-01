@@ -11,16 +11,19 @@
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-06-30T12:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/directx11/</loc>
+    <lastmod>2024-06-30T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/general/</loc>
     <lastmod>2024-06-30T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/hello-world/</loc>
-    <lastmod>2024-06-30T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/introduction/</loc>
-    <lastmod>2024-06-30T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <lastmod>2024-06-30T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/light-scattering/</loc>
+    <lastmod>2024-06-30T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/postprocessing/</loc>
     <lastmod>2024-06-30T12:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>

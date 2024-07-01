@@ -8,13 +8,15 @@
     <language>en-gb</language>
     <lastBuildDate>Sun, 30 Jun 2024 12:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
+      <title>In-scattering for spot lights</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Sun, 30 Jun 2024 12:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/my-first-post/</guid>
       
-      <description>Welcome to my first post! This is an introduction to my blog.</description>
+      <description>In short This post will cover my work on light scattering in game Guiding Light developed using DirectX 11 for ZTGK 2024 competition. Our work was awarded the main prize in the Game Development category and received a special award from Activision.
+Picture showing the results of my work.
+Chosen method I needed to find a method that wouldn&amp;rsquo;t take me much time to implement. We were tasked with making a game in parallel with it&amp;rsquo;s own game engine in 3 months, there wasn&amp;rsquo;t much time for sophisticated methods, nor was it necessary given the overall theme of our game.</description>
       
     </item>
     

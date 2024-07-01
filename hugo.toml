@@ -46,6 +46,13 @@ theme = "hugo-blog-awesome"
 		startLevel = 2 # ToC starts from H2
 		endLevel = 4 # ToC ends at H4
 		ordered = false # generates <ul> instead of <ol>
+	[markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
 
 ############################## English language ################################
 [Languages.en-gb]
@@ -95,13 +102,14 @@ theme = "hugo-blog-awesome"
   # summary - includes a short summary of the blog post in the RSS feed. Generated using Hugo .Summary .
   # full - includes full blog post in the RSS feed. Generated using Hugo .Content .
   # By default (or if nothing is specified), summary is used.
+  math = true
 
 [Languages.en-gb.params.author]
   avatar = "me.jpg" # put the file in assets folder; also ensure that image has same height and width
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
-  intro = "Graphics programming adventures"
+  intro = "Graphics programming blog"
   name = "Hubert Olejnik"
-  description = "My place for documenting my journey through the field of graphics programming as well as other aspects of game developement."
+  description = "My place for documenting my struggles through the field of graphics programming as well as other aspects of game developement."
 
 # Allow to override webmanifest options
 [Languages.en-gb.params.webmanifest]
