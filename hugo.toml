@@ -134,5 +134,9 @@ url = "https://github.com/umbc1ok"
 name = "twitter"
 url = "https://x.com/umbc1ok"
 
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/hubert-olejnik-4295641b4/"
+
 
 
