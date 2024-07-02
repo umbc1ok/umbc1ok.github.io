@@ -67,6 +67,7 @@ or as a quadratic equation:
 x^2 + z^2 - y^2 \cdot tan^2(θ) = 0
 \]
 Theta (θ) is the cut-off angle of the cone.
+(if you don't understand the equation look into [Geogebra](https://www.geogebra.org/3d/ctmp4vzv)).
 
 For every pixel we will be casting a ray from the camera towards it. Later we will determine if the ray intersects with the cone.
 Given an origin point *O* and direction *D*, a point along the ray can be represented by:
