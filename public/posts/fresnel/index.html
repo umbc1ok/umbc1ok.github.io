@@ -5,11 +5,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Posts | Hubert Olejnik</title>
-<meta property="og:title" content="Posts | Hubert Olejnik" />
-<meta name="twitter:title" content="Posts | Hubert Olejnik" />
-<meta itemprop="name" content="Posts | Hubert Olejnik" />
-<meta name="application-name" content="Posts | Hubert Olejnik" />
+<title itemprop="name">Using Rim lighting as a gameplay cue | Hubert Olejnik</title>
+<meta property="og:title" content="Using Rim lighting as a gameplay cue | Hubert Olejnik" />
+<meta name="twitter:title" content="Using Rim lighting as a gameplay cue | Hubert Olejnik" />
+<meta itemprop="name" content="Using Rim lighting as a gameplay cue | Hubert Olejnik" />
+<meta name="application-name" content="Using Rim lighting as a gameplay cue | Hubert Olejnik" />
 <meta property="og:site_name" content="Hubert Olejnik - Graphics programming" />
 
 <meta name="description" content="Blog about my adventures in graphics">
@@ -20,7 +20,7 @@
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
 
-  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/" title="English" />
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/posts/fresnel/" title="English" />
 
 
 
@@ -32,14 +32,6 @@
 
 
 
-    
-    
-    
-    
-    
-    <link rel="first" href="/posts/" />
-    <link rel="last" href="/posts/" />
-    
     
     
     
@@ -56,14 +48,14 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Posts",
+        "headline": "Using Rim lighting as a gameplay cue",
         "author": {
         "@type": "Person",
         "name": ""
         },
         "datePublished": "2024-07-03",
         "description": "",
-        "wordCount":  0 ,
+        "wordCount":  565 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-07-03",
         "image": {
@@ -82,9 +74,7 @@
 
     
 
-    <link rel="canonical" href="http://localhost:1313/posts/">
-    <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Hubert Olejnik">
-    <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Hubert Olejnik">
+    <link rel="canonical" href="http://localhost:1313/posts/fresnel/">
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -206,55 +196,96 @@ stroke-linejoin="round" class="feather feather-home">
     </nav>
 </div>
 
-  <div class="wrapper list-page">
-    <header class="header">
-        <h1 class="header-title center">Posts</h1>
-    </header>
+  
+<div class="wrapper post">
     <main class="page-content" aria-label="Content">
-        
-        
-        <h2 class="post-year">2024</h2>
-
-        
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/posts/fresnel/">Using Rim lighting as a gameplay cue</a>
-    </h4>
+        <article>
+            <header class="header">
+                <h1 class="header-title">Using Rim lighting as a gameplay cue</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-03T12:00:00&#43;00:00" itemprop="datePublished"> 3 Jul 2024 </time>
+                </div>
+                
+            </header>
+            
     
-    
-    
-    <time class="post-item-meta" datetime="2024-07-03T12:00:00Z">
-        3 Jul 2024
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/posts/my-first-post/">In-scattering for spot lights</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-06-30T12:00:00Z">
-        30 Jun 2024
-        
-    </time>
-</article>
-
-
-         
-
-         
-
-    </main>
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#in-short">In short</a></li>
+    <li><a href="#how-to-simulate-it-in-a-shader">How to simulate it in a shader?</a></li>
+    <li><a href="#using-it-as-a-cue">Using it as a cue</a></li>
+    <li><a href="#the-end">The end</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <h2 id="in-short">In short</h2>
+<p>Rim lighting is one of the easiest to implement effects. It&rsquo;s based on the Fresnel effect,
+which is the observation that the amount of reflectance you see on a surface depends on the viewing angle. You can find
+a good practical explanation <a href="https://www.dorian-iten.com/fresnel/">here</a>. I will try to keep this post as easy to understand as possible, because if you are here
+you are probably a beginner.</p>
+<h2 id="how-to-simulate-it-in-a-shader">How to simulate it in a shader?</h2>
+<p>So, as I mentioned, the amount of reflectance depends on the viewing angle.
+<img alt="Rim example1" src="/fresnel/1.png">
+So, we have two vectors pointing at two spots on the sphere. How do we calculate the fresnel effect at each of those points?
+The viewing angle is the angle between the surface and view vector. The direction in which the surface is oriented is called a <em>normal</em>.
+<img alt="Rim example with normal" src="/fresnel/2.png"></p>
+<p>Because the reflactance is higher when the angle is steeper, it can be easily established that the pixel pointed at by the green arrow will be brighter.
+That&rsquo;s how it should look:</p>
+<p><img alt="Rim example with normal" src="/fresnel/fresnel_example_godot.png"></p>
+<p>We can use the dot product of the view and normal vectors (both normalized) to get the reflectance strength. Namely,
+we need to subtract the dot product from 1, as dot product of two parallel, normalized vectors will equal 1, why?</p>
+<p>We can use the cosine value of the angle between the normal and view vectors (both normalized) to get the reflectance strength. However, it would
+mean that the reflectance is the strongest at a 90 degrees angle (cos(90deg) = 1), <a href="https://www.geogebra.org/graphing/fbbadnc4">so we just subract the cosine from 1.</a>
+</p>
+\[
+    fresnel = 1 - cos(N,V)
+\]
+<p>
+This doesn&rsquo;t give us much wiggle room, you can&rsquo;t modify it to your needs so let&rsquo;s spice it up:
+</p>
+\[
+    fresnel = brightness \cdot color (1 - cos(N,V))^s
+\]
+<p>
+Now you have some parameters! Brightness and color are self explanatory, the <em>s</em> parameter is the <em>strength</em> of the effect, best illustrated by this picture:
+<img alt="Ms example" src="/fresnel/ms-fresnel-examples.png">
+<a href="https://learn.microsoft.com/en-us/azure/remote-rendering/overview/features/fresnel-effect"><em>Source here</em>. </a>
+The strength is lower on those objects closer to us and stronger on those far away.</p>
+<p>Now having all that theory behind us we can write the shader</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hlsl" data-lang="hlsl"><span class="line"><span class="cl"><span class="kt">float3</span> <span class="n">glow</span><span class="p">(</span><span class="kt">float3</span> <span class="n">color</span><span class="p">,</span> <span class="kt">float3</span> <span class="n">world_pos</span><span class="p">,</span> <span class="kt">float3</span> <span class="n">world_normal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">strength</span> <span class="o">=</span> <span class="mf">2.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flaot</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// camera pos is passed via a constant buffer</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float3</span> <span class="n">view_dir</span> <span class="o">=</span> <span class="nb">normalize</span><span class="p">(</span><span class="n">camera_pos</span><span class="p">.</span><span class="n">xyz</span> <span class="o">-</span> <span class="n">world_pos</span><span class="p">.</span><span class="n">xyz</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// You can use the dot product to get the cosine value</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// because dot(N,V) = |N||V| cos(angle)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Normalized vectors are of length 1, so you are left with cos(angle)</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">normal_view_dot</span> <span class="o">=</span> <span class="nb">dot</span><span class="p">(</span><span class="n">world_normal</span><span class="p">,</span> <span class="n">view_dir</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">brightness</span> <span class="o">*</span> <span class="n">color</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">1.0f</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">normal_view_dot</span><span class="p">),</span> <span class="n">strength</span><span class="p">);</span>
+</span></span></code></pre></div><p>And that wraps up this section!</p>
+<h2 id="using-it-as-a-cue">Using it as a cue</h2>
+<p>This is a very universal shader, in case of our game, Guiding Light, it was used to guide the player to the activity
+we wanted him to perform. We made the object glow with different strength over time.</p>
+<div style="text-align: center;">
+    <img src="/fresnel/fresnel.gif" alt="Fresnel with time-based strength" />
 </div>
+<p>As you might expect, it&rsquo;s incredibly simple to implement, thanks to our great parameters!
+We just need to change the strength overtime. After some tweaking I came up with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hlsl" data-lang="hlsl"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">strength</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">sin</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="mf">5.0f</span><span class="p">))</span> <span class="o">*</span> <span class="mf">8.0f</span><span class="p">;</span> <span class="c1">// time is from a constant buffer</span>
+</span></span></code></pre></div><p>We also shifted the color towards yellow, artists choice:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hlsl" data-lang="hlsl"><span class="line"><span class="cl"><span class="n">color</span><span class="p">.</span><span class="n">b</span> <span class="o">*=</span> <span class="mf">0.7f</span><span class="p">;</span>
+</span></span></code></pre></div><h2 id="the-end">The end</h2>
+<p>It was a quite a short tutorial, but I hope it comes in handy to at least 1 person ;) Remember, if you have any questions, you can always let me know on twitter <a href="https://x.com/umbc1ok">@umbc1ok</a>.</p>
+
+            </div>
+        </article></main>
+</div>
+
   <footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
