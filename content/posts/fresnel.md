@@ -23,9 +23,6 @@ That's how it should look:
 
 ![Rim example with normal](/fresnel/fresnel_example_godot.png)
 
-We can use the dot product of the view and normal vectors (both normalized) to get the reflectance strength. Namely,
-we need to subtract the dot product from 1, as dot product of two parallel, normalized vectors will equal 1, why?
-
 We can use the cosine value of the angle between the normal and view vectors (both normalized) to get the reflectance strength. However, it would
 mean that the reflectance is the strongest at a 90 degrees angle (cos(90deg) = 1), [so we just subract the cosine from 1.](https://www.geogebra.org/graphing/fbbadnc4)
 \[

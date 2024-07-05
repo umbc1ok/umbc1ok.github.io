@@ -55,7 +55,7 @@
         },
         "datePublished": "2024-07-03",
         "description": "",
-        "wordCount":  565 ,
+        "wordCount":  524 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-07-03",
         "image": {
@@ -237,8 +237,6 @@ The viewing angle is the angle between the surface and view vector. The directio
 <p>Because the reflactance is higher when the angle is steeper, it can be easily established that the pixel pointed at by the green arrow will be brighter.
 That&rsquo;s how it should look:</p>
 <p><img alt="Rim example with normal" src="/fresnel/fresnel_example_godot.png"></p>
-<p>We can use the dot product of the view and normal vectors (both normalized) to get the reflectance strength. Namely,
-we need to subtract the dot product from 1, as dot product of two parallel, normalized vectors will equal 1, why?</p>
 <p>We can use the cosine value of the angle between the normal and view vectors (both normalized) to get the reflectance strength. However, it would
 mean that the reflectance is the strongest at a 90 degrees angle (cos(90deg) = 1), <a href="https://www.geogebra.org/graphing/fbbadnc4">so we just subract the cosine from 1.</a>
 </p>
