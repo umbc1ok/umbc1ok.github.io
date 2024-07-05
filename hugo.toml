@@ -105,9 +105,9 @@ theme = "hugo-blog-awesome"
   math = true
 
 [Languages.en-gb.params.author]
-  avatar = "me.jpg" # put the file in assets folder; also ensure that image has same height and width
+  #avatar = "me.jpg" # put the file in assets folder; also ensure that image has same height and width
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
-  intro = "Graphics programming blog"
+  intro = "Hubert Olejnik"
   name = "Hubert Olejnik"
   description = "My place for documenting my struggles through the field of graphics programming as well as other aspects of game developement."
 
