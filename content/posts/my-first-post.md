@@ -21,7 +21,7 @@ my needs perfectly.
 
 ## What did I do and how?
 Macklin's solution covered most of my needs, with one exception. Light scattering didn't take into account occluders, which was very crucial to me, lighthouse's light was
-the center-point of entire gameplay, a light that goes through occluders would be unacceptable. I will explain my solution in a later section. First, I want to shine some light on what Macklin did, but did not explain in his blog. Next few sections will explain step-by-step how to achieve the scattering for both point and spot lights.
+the center-point of entire gameplay, a light that goes through occluders would be unacceptable. I will explain my solution in a later section. First, I want to shine some light on what Macklin did, but did not explain in his blog. Next few sections will explain step-by-step how to achieve the scattering for spot lights.
 
 ## Scattering equation
 Macklin explains the theory behind it quite well, moreover he provides a GLSL snippet for the code. I made one change to it (other than rewriting in HLSL):
@@ -95,10 +95,10 @@ Solving it will give you the ray's intersection points with the cone.
 We will later use distance between those two points to determine the scattering strength.
 Here's how the function looks like:
 ```hlsl
-// This is mostly Macklin's code
+// This is mostly taken from Macklin's blog
 float2 intersect_cone(SpotLight light, float3 origin, float3 direction)
 {
-
+    // Transform to light's local space
     float4 local_origin = mul(light.inv_model, float4(origin, 1.0f));
     float4 local_direction = mul(light.inv_model, float4(direction, 0.0f));
 
@@ -201,6 +201,11 @@ I am ashamed to admit I chose to use this solution, the game was dynamic enough 
 I think there is. You could, in such situations, ray-march between the intersection points and calculate the shadow (could be a bit costly) and later
 average it. If you implement it, lemme know on Twitter [@umbc1ok](https://x.com/umbc1ok).
 
+## The noise on the fog
+The noise you see on the fog is not natural, it's a trick I used. Normally scatter will just fade-out when it's farther away from the light source and that's it. This makes the cone look too regular for me, I used a noise texture that I scrolled to the screen to apply some distortions to the fog. Note that it only works because the camera in our game is static, otherwise it would be very unpleasant to look at.
+That's how it looks without the noise on:
+![Scattering with no fog](/blog1/no_noise.png)
+
 ## Ending notes
-I would like to especially thank Miles Macklin for his blog on this subject. When developing the game I was running out of ideas how to implement the spot light scattering.
-Remember that most of the code and ideas is Miles', I just wanted to explain it a little bit more and dig it out of the abyss (the blog is from 2012!).
+I would like to especially thank Miles Macklin for his blog on this subject.
+Remember that this post is mostly an explanation of what Miles did, but didn't explain himself. I also wanted to dig this method out of the abyss (the blog is from 2012!).
