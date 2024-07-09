@@ -202,9 +202,20 @@ I think there is. You could, in such situations, ray-march between the intersect
 average it. If you implement it, lemme know on Twitter [@umbc1ok](https://x.com/umbc1ok).
 
 ## The noise on the fog
-The noise you see on the fog is not natural, it's a trick I used. Normally scatter will just fade-out when it's farther away from the light source and that's it. This makes the cone look too regular for me, I used a noise texture that I scrolled to the screen to apply some distortions to the fog. Note that it only works because the camera in our game is static, otherwise it would be very unpleasant to look at.
+The noise you see on the fog is not natural, it's a trick I used. Normally scatter will just fade-out when it's farther away from the light source and that's it. This makes the cone look too regular for me, I used a noise texture that I scrolled through the screen to apply some distortions to the fog. Note that it only works because the camera in our game is static, otherwise it would be very unpleasant to look at.
 That's how it looks without the noise on:
 ![Scattering with no fog](/blog1/no_noise.png)
+
+## Optimization?
+During ZTGK I got a chance to meet some great graphics programmers and they asked me a looot of questions. The best part for me was that I didn't have any issues with finding answers to them, which helped me with getting rid of the impostor syndrome, at least a bit. There was however one question that I couldn't answer, which seriously boggled me. The question was: **How do you draw the geometry of those lights?**
+
+Well, my answer was: *I use the cone's equation to check if a ray intersects with it*. It was actually not what the question was about, he was looking for some geometry that will be literally drawn with a draw call.
+
+A few weeks later I was reading Adrian Courrèges' blog about [reverse engineering GTA V's rendering pipeline](https://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study-part-2/) and came across this image:
+![Scattering example](/blog1/lamp.jpg)
+
+And that's where I realized what was his question about. I could render a mesh that would have a shape of a cone (or a sphere in case of point lights) and use it
+to determine which pixels are affected by scattering. That would be a huge optimization and it's also something I probably should have done to utilize deferred rendering better.
 
 ## Ending notes
 I would like to especially thank Miles Macklin for his blog on this subject.

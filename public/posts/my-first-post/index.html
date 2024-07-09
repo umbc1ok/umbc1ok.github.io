@@ -55,7 +55,7 @@
         },
         "datePublished": "2024-06-30",
         "description": "",
-        "wordCount":  1294 ,
+        "wordCount":  1496 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-06-30",
         "image": {
@@ -223,6 +223,7 @@ stroke-linejoin="round" class="feather feather-home">
     <li><a href="#what-about-the-shadows">What about the shadows?</a></li>
     <li><a href="#is-there-any-way-to-fix-it">Is there any way to fix it?</a></li>
     <li><a href="#the-noise-on-the-fog">The noise on the fog</a></li>
+    <li><a href="#optimization">Optimization?</a></li>
     <li><a href="#ending-notes">Ending notes</a></li>
   </ul>
 </nav>
@@ -404,9 +405,16 @@ Now we see that this is flawed. Cone makes the impression of being empty.</p>
 <p>I think there is. You could, in such situations, ray-march between the intersection points and calculate the shadow (could be a bit costly) and later
 average it. If you implement it, lemme know on Twitter <a href="https://x.com/umbc1ok">@umbc1ok</a>.</p>
 <h2 id="the-noise-on-the-fog">The noise on the fog</h2>
-<p>The noise you see on the fog is not natural, it&rsquo;s a trick I used. Normally scatter will just fade-out when it&rsquo;s farther away from the light source and that&rsquo;s it. This makes the cone look too regular for me, I used a noise texture that I scrolled to the screen to apply some distortions to the fog. Note that it only works because the camera in our game is static, otherwise it would be very unpleasant to look at.
+<p>The noise you see on the fog is not natural, it&rsquo;s a trick I used. Normally scatter will just fade-out when it&rsquo;s farther away from the light source and that&rsquo;s it. This makes the cone look too regular for me, I used a noise texture that I scrolled through the screen to apply some distortions to the fog. Note that it only works because the camera in our game is static, otherwise it would be very unpleasant to look at.
 That&rsquo;s how it looks without the noise on:
 <img alt="Scattering with no fog" src="/blog1/no_noise.png"></p>
+<h2 id="optimization">Optimization?</h2>
+<p>During ZTGK I got a chance to meet some great graphics programmers and they asked me a looot of questions. The best part for me was that I didn&rsquo;t have any issues with finding answers to them, which helped me with getting rid of the impostor syndrome, at least a bit. There was however one question that I couldn&rsquo;t answer, which seriously boggled me. The question was: <strong>How do you draw the geometry of those lights?</strong></p>
+<p>Well, my answer was: <em>I use the cone&rsquo;s equation to check if a ray intersects with it</em>. It was actually not what the question was about, he was looking for some geometry that will be literally drawn with a draw call.</p>
+<p>A few weeks later I was reading Adrian Courrèges&rsquo; blog about <a href="https://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study-part-2/">reverse engineering GTA V&rsquo;s rendering pipeline</a> and came across this image:
+<img alt="Scattering example" src="/blog1/lamp.jpg"></p>
+<p>And that&rsquo;s where I realized what was his question about. I could render a mesh that would have a shape of a cone (or a sphere in case of point lights) and use it
+to determine which pixels are affected by scattering. That would be a huge optimization and it&rsquo;s also something I probably should have done to utilize deferred rendering better.</p>
 <h2 id="ending-notes">Ending notes</h2>
 <p>I would like to especially thank Miles Macklin for his blog on this subject.
 Remember that this post is mostly an explanation of what Miles did, but didn&rsquo;t explain himself. I also wanted to dig this method out of the abyss (the blog is from 2012!).</p>
