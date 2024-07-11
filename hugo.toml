@@ -14,6 +14,7 @@ ignoreErrors = ["additional-script-loading-error"] # ignore error of loading add
 # traditional way: theme component resides in directory 'themes' 
 theme = "hugo-blog-awesome"
 
+
 # modern way: pull in theme component as hugo module
 #[module]
   # Uncomment the next line to build and serve using local theme clone declared in the named Hugo workspace:
@@ -137,6 +138,3 @@ url = "https://x.com/umbc1ok"
 [[params.socialIcons]]
 name = "linkedin"
 url = "https://www.linkedin.com/in/hubert-olejnik-4295641b4/"
-
-
-

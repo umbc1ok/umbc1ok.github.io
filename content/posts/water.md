@@ -2,7 +2,8 @@
 title = 'Water rendering in Guiding Light'
 date = 2024-07-05T00:05:12+02:00
 draft = false
-
+[params]
+  defaultColor = "dark" # Set color mode to dark for this page
 +++
 ## In short
 This post will cover my work on water rendering in game Guiding Light developed using DirectX 11 for ZTGK 2024 competition. Our work was awarded the main prize in the Game Development category and received a special award from Activision.
