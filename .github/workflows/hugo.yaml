@@ -66,13 +66,17 @@ jobs:
           path: ./public
 
   # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+deploy:
+  needs: build
+  runs-on: ubuntu-latest
+  environment:
+    name: github-pages
+  steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set environment URL
+      run: echo "url=${{ steps.deployment.outputs.page_url }}" >> $GITHUB_OUTPUT
